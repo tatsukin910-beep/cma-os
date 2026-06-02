@@ -1,1 +1,5 @@
-streamlit
+streamlit==1.25.0
+flake8==5.0.4
+pytest==7.2.2
+hashlib
+random
