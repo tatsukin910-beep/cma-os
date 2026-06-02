@@ -44,3 +44,5 @@ COPY . .
 
 # デフォルトコマンド
 CMD ["streamlit", "run", "app.py"]
+docker build -t cma-os-app .
+docker run -p 8501:8501 cma-os-app
