@@ -12,3 +12,4 @@ Cognitive CMA OS（認知モデル分析OS）は、ストレスとイベント�
 ```bash
 git clone https://github.com/tatsukin910-beep/cma-os.git
 cd cma-os
+pip install -r requirements.txt
