@@ -1,2 +1,39 @@
-streamlit
 streamlit run app.py
+---
+
+pytest
+
+### 2. CI/CD ワークフローで自動化
+GitHub Actions を使用して環境のセットアップやテストを自動化します。
+
+#### **修正版の Conda ワークフロー例**
+以下の内容を `.github/workflows/python-package-conda.yml` に追加します：
+```yaml
+name: Python Package using Conda
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.10
+          environment-file: environment.yml
+          activate-environment: cma_os
+
+      - name: Lint Code with Flake8
+        run: flake8 .
+
+      - name: Run Tests with Pytest
+        run: pytest
