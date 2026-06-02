@@ -32,3 +32,15 @@ jobs:
       run: |
         conda install pytest
         pytest
+COPY requirements.txt .
+# 必須ファイルをコピー
+COPY requirements.txt .
+
+# 依存関係のインストール
+RUN pip install -r requirements.txt
+
+# アプリコードをコピー
+COPY . .
+
+# デフォルトコマンド
+CMD ["streamlit", "run", "app.py"]
